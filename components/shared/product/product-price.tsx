@@ -4,7 +4,7 @@ const ProductPrice = ({
   value,
   className,
 }: {
-  value: number;
+  value: string;
   className?: string;
 }) => {
   const formattedValue = parseFloat(value.toString()).toFixed(2);
