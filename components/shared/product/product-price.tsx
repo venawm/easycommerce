@@ -7,10 +7,9 @@ const ProductPrice = ({
   value: number;
   className?: string;
 }) => {
-  const stringValue = value.toFixed(2);
-  //   Get the decimal value
+  const formattedValue = parseFloat(value.toString()).toFixed(2);
 
-  const [intValue, floatValue] = stringValue.split(".");
+  const [intValue, floatValue] = formattedValue.split(".");
   return (
     <p className={cn("text-2xl", className)}>
       <span className="text-xs align-super">$</span>
