@@ -107,15 +107,15 @@ const sampleData = {
   ],
   users: [
     {
-      name: "Samir",
-      email: "admin@gmail.com",
-      password: hashSync("admin", 10),
+      name: "John",
+      email: "admin@example.com",
+      password: hashSync("123456", 10),
       role: "admin",
     },
     {
-      name: "jane",
-      email: "user@gmail.com",
-      password: hashSync("admin", 10),
+      name: "Jane",
+      email: "user@example.com",
+      password: hashSync("123456", 10),
       role: "user",
     },
   ],
