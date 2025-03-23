@@ -19,12 +19,12 @@ export function formatNumberWithDecimal(num: number): string {
 }
 
 // Format Errors
-// eslint-disable-next-line @typescript-eslint/no-explict-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function formatError(error: any) {
   if (error.name === "ZodError") {
     // Handle Zod Error
     const fieldErrors = Object.keys(error.errors).map(
-      (field) => error.errors[field].message
+      (field) => error.errors[field].message,
     );
 
     return fieldErrors?.join(". ");
@@ -39,4 +39,16 @@ export async function formatError(error: any) {
       ? error.message
       : JSON.stringify(error.message);
   }
+}
+
+// Numbers round to 2 decimal
+
+export function round2(value: number | string): number {
+  const num = typeof value === "number" ? value : Number(value);
+
+  if (isNaN(num)) {
+    throw new Error("Value is not a valid number");
+  }
+
+  return Math.round((num + Number.EPSILON) * 100) / 100;
 }

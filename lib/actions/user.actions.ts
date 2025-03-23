@@ -10,7 +10,7 @@ import { formatError } from "../utils";
 // Sign in the user with credentials
 export async function signInWithCredentials(
   prevState: unknown,
-  formData: FormData
+  formData: FormData,
 ) {
   try {
     console.log("try");
@@ -20,6 +20,8 @@ export async function signInWithCredentials(
     });
 
     const results = await signIn("credentials", user);
+
+    console.log(results);
 
     return { success: true, message: "Signed in successfully" };
   } catch (error) {
