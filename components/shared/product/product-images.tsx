@@ -1,35 +1,24 @@
 "use client";
-import { useState } from "react";
+
 import Image from "next/image";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
-const ProductIamges = ({ images }: { images: string[] }) => {
+const ProductImages = ({image}:{image:string[]}) => {
   const [current, setCurrent] = useState(0);
-  return (
-    <div className="space-y-4">
-      <Image
-        src={images[current]}
-        alt="product image"
-        width={1000}
-        height={1000}
-        className="min-h-[300px] object-cover object-center"
-      />
-      <div className="flex">
-        {images.map((image, index) => (
-          <div
-            key={image}
-            onClick={() => setCurrent(index)}
-            className={cn(
-              "border mr-2 cursor-pointer hover:border-orange-500",
-              current === index && "border-orange-400"
-            )}
-          >
-            <Image src={image} alt="image" width={100} height={100} />
-          </div>
+  return <div className="space-y-4">
+    <Image src={image[current]} alt="product image" height={1000} width={1000} className="min-h-[300px] object-cover object-center"/>
+
+    <div className="flex">
+        {image.map((item,index) => (
+            <div key={index} onClick={() => setCurrent(index)} className={cn("border mr-2 cursor-pointer hover:border-orange-600", current === index && "border-orange-600")}>
+                <Image src={item} alt="product-image" height={100} width={100}/> 
+            </div>
         ))}
-      </div>
+
     </div>
-  );
+
+  </div>;
 };
 
-export default ProductIamges;
+export default ProductImages;

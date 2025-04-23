@@ -1,28 +1,13 @@
-import "@/assets/styles/loader.styles.css";
+import React from 'react'
+import Image from 'next/image'
+import loader from "@/assets/loader.gif"
 
-const Loading = () => {
+const loading = () => {
   return (
-    <div
-      className=""
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        width: "100vw",
-      }}
-    >
-      <div className="loader">
-        <div className="loader-square"></div>
-        <div className="loader-square"></div>
-        <div className="loader-square"></div>
-        <div className="loader-square"></div>
-        <div className="loader-square"></div>
-        <div className="loader-square"></div>
-        <div className="loader-square"></div>
-      </div>
+    <div className='h-screen w-full flex-center'>
+        <Image src={loader} alt="loader" height={150} width={150}/> 
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default loading
